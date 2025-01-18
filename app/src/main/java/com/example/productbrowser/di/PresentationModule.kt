@@ -1,6 +1,5 @@
-package com.example.productbrowser.module
+package com.example.productbrowser.di
 
-import com.example.productbrowser.MyApp
 import com.example.productbrowser.api.MyApi
 import com.example.productbrowser.utils.Constants.BASEURL
 import dagger.Module
@@ -13,7 +12,7 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-class AppModule  {
+class PresentationModule  {
 
     @Provides
     @Singleton

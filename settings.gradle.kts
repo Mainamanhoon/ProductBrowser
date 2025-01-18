@@ -16,9 +16,13 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal() // Optional for plugins
+
     }
 }
 
 rootProject.name = "ProductBrowser"
 include(":app")
- 
+include(":data")
+include(":domain")
+include(":common")

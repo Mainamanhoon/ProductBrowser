@@ -1,22 +1,17 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("com.android.library")
+    id("kotlin-android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.example.productbrowser"
-    compileSdk = 35  
+    namespace = "com.example.domain"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.productbrowser"
         minSdk = 23
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -28,22 +23,21 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
 }
 
 dependencies {
-
-    implementation(project(":data"))
     implementation(project(":common"))
-    implementation(project(":domain"))
 
-    // AndroidX dependencies
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -79,8 +73,7 @@ dependencies {
     // Android Lifecycle Components
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
-    implementation ("com.github.bumptech.glide:glide:4.16.0")
-
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
 
 kapt {

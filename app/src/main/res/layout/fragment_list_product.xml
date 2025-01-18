@@ -48,6 +48,7 @@
         app:layout_constraintGuide_percent="0.6" />
 
     <GridView
+        android:id="@+id/products_gv"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:numColumns="auto_fit"
