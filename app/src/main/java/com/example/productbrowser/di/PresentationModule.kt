@@ -1,6 +1,7 @@
 package com.example.productbrowser.di
 
-import com.example.productbrowser.api.MyApi
+import com.example.data.network.ApiService
+//import com.example.productbrowser.api.MyApi
 import com.example.productbrowser.utils.Constants.BASEURL
 import dagger.Module
 import dagger.Provides
@@ -23,10 +24,10 @@ class PresentationModule  {
             .build()
     }
 
-    @Provides
-    @Singleton
-    fun providesMyApi(retrofit: Retrofit):MyApi{
-        return retrofit.create(MyApi::class.java)
-    }
+//    @Provides
+//    @Singleton
+//    fun providesMyApi(retrofit: Retrofit):ApiService{
+//        return retrofit.create(ApiService::class.java)
+//    }
 
 }

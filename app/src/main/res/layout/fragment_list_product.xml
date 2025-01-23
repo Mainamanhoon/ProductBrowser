@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".ListProductFragment">
+    tools:context=".ui.ListProductFragment">
 
     <TextView
         android:id="@+id/productTv"
@@ -15,30 +15,32 @@
         android:gravity="center"
         android:text="Product List"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="16dp"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.google.android.material.textfield.TextInputEditText
+    <SearchView
         android:id="@+id/search_et"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/grey_bg"
-        android:drawableStart="@drawable/magnifier_icon"
+        android:queryHint="Search Products"
         android:drawablePadding="8dp"
-        android:hint="Search Products"
-        android:padding="16dp"
+        android:padding="0dp"
         android:textColor="@color/grey_101"
         android:textColorHint="@color/grey_101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/productTv" />
+        app:layout_constraintTop_toBottomOf="@id/productTv"
+        app:layout_constraintBottom_toTopOf="@id/guideline_h1"
+        android:layout_marginTop="16dp"/>
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_h1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_h2"
@@ -47,15 +49,15 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
-    <GridView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/products_gv"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:numColumns="auto_fit"
-        android:verticalSpacing="8dp"
-        android:horizontalSpacing="8dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        tools:listitem="@layout/product_card"
-        app:layout_constraintTop_toBottomOf="@id/guideline_h1"/>
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_h1"
+        tools:layout_editor_absoluteX="16dp"
+        tools:listitem="@layout/product_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,9 @@
 package com.example.common
 
-sealed class Resource<T>(val data :T?=null, val message:String?=null){
-    class Success<T>(data:T?) : Resource<T>(data = data)
-    class Loading<T>(message:String?) : Resource<T>()
-    class Error<T>(message: String?) : Resource<T>(message=message)
+import java.lang.Exception
+
+sealed class Resource<out R>{
+    data class Success<out R>(val result:R): Resource<R>()
+    data class Error(val exception: Exception): Resource<Nothing>()
+    data object Loading: Resource<Nothing>()
 }
