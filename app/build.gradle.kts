@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.hilt.common)
+    implementation(libs.androidx.hilt.work)
 
     // Unit and Instrumentation Tests
     testImplementation(libs.junit)
@@ -86,7 +88,17 @@ dependencies {
 
     //paging 3
     implementation("androidx.paging:paging-runtime-ktx:3.3.5")
-    
+
+    //swipe
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation ("androidx.work:work-runtime-ktx:2.8.1")
+
+    implementation("androidx.startup:startup-runtime:1.1.0")
+
+
+
+
+
 
 }
 

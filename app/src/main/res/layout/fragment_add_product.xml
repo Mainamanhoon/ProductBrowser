@@ -25,7 +25,7 @@
      android:id="@+id/btn_close"
      android:layout_width="24dp"
      android:layout_height="24dp"
-     android:src="@android:drawable/ic_menu_close_clear_cancel"
+     android:src="@drawable/baseline_close_24"
      android:contentDescription="Close"
      android:clickable="true"
      android:focusable="true"
@@ -51,7 +51,7 @@
      android:hint="Product name"
      android:background="@drawable/edittextbackground_grey"
      style="@style/normalTextStyle"
-     android:padding="12dp"
+     android:padding="10dp"
      app:layout_constraintTop_toBottomOf="@id/tv_product_name"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintEnd_toEndOf="parent"/>
@@ -74,7 +74,7 @@
      android:layout_height="wrap_content"
      android:hint="Product type"
      android:background="@drawable/edittextbackground_grey"
-     android:padding="12dp"
+     android:padding="10dp"
      app:layout_constraintTop_toBottomOf="@id/tv_product_type"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +100,7 @@
      android:hint="Selling price"
      android:background="@drawable/edittextbackground_grey"
      android:inputType="numberDecimal"
-     android:padding="12dp"
+     android:padding="10dp"
      app:layout_constraintTop_toBottomOf="@id/tv_selling_price"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
      android:hint="Tax rate"
      android:background="@drawable/edittextbackground_grey"
      android:inputType="numberDecimal"
-     android:padding="12dp"
+     android:padding="10dp"
      app:layout_constraintTop_toBottomOf="@id/tv_tax_rate"
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
@@ -147,14 +147,40 @@
      app:layout_constraintStart_toStartOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
      android:backgroundTint="@color/grey_100">
-
-  <ImageView
-      android:id="@+id/ivProductImage"
+  <FrameLayout
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scaleType="center"
-      android:contentDescription="Product Image"
-      android:src="@drawable/baseline_add_photo_alternate_24"/>
+      android:layout_height="match_parent">
+
+   <LinearLayout
+       android:id="@+id/ll_imv"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:gravity="center">
+    <ImageView
+        android:id="@+id/addImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:contentDescription="Product Image"
+        android:src="@drawable/baseline_add_photo_alternate_24"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Image"
+        android:textSize="10dp"
+        android:textColor="@color/blue"
+        />
+   </LinearLayout>
+   <ImageView
+       android:id="@+id/ivProductImage"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:scaleType="center"
+       android:contentDescription="Product Image" />
+
+  </FrameLayout>
+
  </androidx.cardview.widget.CardView>
 
 

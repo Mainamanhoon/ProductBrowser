@@ -1,33 +1,27 @@
 package com.example.productbrowser.di
 
+
+import android.app.Application
 import com.example.data.network.ApiService
-//import com.example.productbrowser.api.MyApi
-import com.example.productbrowser.utils.Constants.BASEURL
+import com.example.data.repository.ProductsRepositoryImpl
+import com.example.data.room.ProductDatabase
+import com.example.domain.repository.PagerProductsRepository
+import com.example.domain.repository.ProductsRepository
+import com.example.domain.use_cases.GetProductsUseCase
+import com.example.productbrowser.ui.home.HomeViewModel
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
 class PresentationModule  {
 
-    @Provides
-    @Singleton
-    fun providesRetrofit():Retrofit{
-        return Retrofit.Builder()
-            .baseUrl(BASEURL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
 
-//    @Provides
-//    @Singleton
-//    fun providesMyApi(retrofit: Retrofit):ApiService{
-//        return retrofit.create(ApiService::class.java)
-//    }
+
+
 
 }

@@ -7,6 +7,7 @@
     android:padding="16dp"
     tools:context=".ui.ListProductFragment">
 
+
     <TextView
         android:id="@+id/productTv"
         style="@style/HeadingStyle1"
@@ -17,14 +18,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <SearchView
+    <EditText
         android:id="@+id/search_et"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/grey_bg"
         android:queryHint="Search Products"
-        android:drawablePadding="8dp"
         android:padding="0dp"
+        android:drawableStart="@drawable/magnifier_icon"
+        android:drawablePadding="8dp"
+        android:hint="Search Products"
+        android:paddingStart="8dp"
         android:textColor="@color/grey_101"
         android:textColorHint="@color/grey_101"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +36,6 @@
         app:layout_constraintTop_toBottomOf="@id/productTv"
         app:layout_constraintBottom_toTopOf="@id/guideline_h1"
         android:layout_marginTop="16dp"/>
-
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -49,15 +52,25 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/products_gv"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:scrollbars="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_h1"
-        tools:layout_editor_absoluteX="16dp"
-        tools:listitem="@layout/product_card" />
+        app:layout_constraintTop_toBottomOf="@id/guideline_h1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/products_gv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:scrollbars="vertical"
+            tools:layout_editor_absoluteX="16dp"
+            tools:listitem="@layout/product_card" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,18 +1,19 @@
 package com.example.data.network.di
 
 import android.content.Context
+import androidx.work.WorkManager
 import com.example.common.Constant.BASE_URL
 import com.example.data.network.ApiService
 import com.example.data.repository.PagerProductsRepositoryImpl
 import com.example.data.repository.ProductsRepositoryImpl
 import com.example.data.room.ProductDAO
 import com.example.data.room.ProductDatabase
+import com.example.data.worker.ProductWorker
 import com.example.domain.repository.PagerProductsRepository
 import com.example.domain.repository.ProductsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
@@ -23,14 +24,14 @@ import javax.inject.Singleton
 @Module
 object DataModule {
 
-//    @Provides
-//    @Singleton
-//    fun provideRetrofit():Retrofit{
-//        return Retrofit.Builder()
-//            .baseUrl(BASE_URL)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
-//    }
+    @Provides
+    @Singleton
+    fun provideRetrofit():Retrofit{
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 
     @Provides
     @Singleton
@@ -40,9 +41,14 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun providesProductsRepository(apiService: ApiService):ProductsRepository{
-        return ProductsRepositoryImpl(apiService)
+    fun providesProductsRepository(apiService: ApiService, databaseDAO: ProductDAO):ProductsRepository{
+        return ProductsRepositoryImpl(apiService,databaseDAO )
     }
+
+
+
+
+
     @Provides
     @Singleton
     fun providesPagerProductRepository(apiService: ApiService):PagerProductsRepository{
@@ -56,4 +62,5 @@ object DataModule {
     fun provideDAO(productDatabase: ProductDatabase): ProductDAO {
         return productDatabase.getProductDAO()
     }
+
 }

@@ -78,6 +78,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("androidx.work:work-runtime-ktx:2.8.1")
+    implementation("androidx.startup:startup-runtime:1.1.0")
+
 }
 
 kapt {

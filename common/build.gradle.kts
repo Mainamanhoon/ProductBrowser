@@ -43,6 +43,11 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.work.runtime)
 
     // Unit and Instrumentation Tests
     testImplementation(libs.junit)
@@ -72,6 +77,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
 }
 
 kapt {
