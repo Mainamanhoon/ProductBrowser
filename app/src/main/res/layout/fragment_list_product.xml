@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".ui.ListProductFragment">
+    tools:context=".ui.home.ListProductFragment.ListProductFragment">
 
 
     <TextView
@@ -35,7 +35,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/productTv"
         app:layout_constraintBottom_toTopOf="@id/guideline_h1"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:singleLine="true"
+        android:paddingEnd="36dp"/>
+
+    <ImageView
+        android:id="@+id/cleartextBtn"
+        android:layout_width="0dp"
+        android:padding = "8dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/search_et"
+        app:layout_constraintBottom_toBottomOf="@id/search_et"
+        app:layout_constraintEnd_toEndOf="@id/search_et"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        android:src="@drawable/baseline_close_24"/>
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -51,6 +65,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_h3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.16" />
+
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_to_refresh"
@@ -59,7 +80,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_h1">
+        app:layout_constraintTop_toBottomOf="@id/guideline_h3">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/products_gv"

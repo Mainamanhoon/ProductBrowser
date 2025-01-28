@@ -1,4 +1,4 @@
-package com.example.productbrowser.ui.addProductFragment
+package com.example.productbrowser.ui.home.addProductFragment
 
 import android.app.Activity
 import android.content.Context
@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.net.toUri
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.domain.models.Product
@@ -47,7 +48,7 @@ class AddProductFragment : BottomSheetDialogFragment() {
                  if (imageUri != null) {
                     binding.ivProductImage.setImageURI(imageUri)
                 } else {
-                    Toast.makeText(context, "No image Selected", Toast.LENGTH_LONG).show()
+//                    Toast.makeText(context, "No image Selected", Toast.LENGTH_LONG).show()
                 }
             }
 

@@ -20,11 +20,3 @@ class ProductWorkerFactory @Inject constructor(
 
 
 }
-//class ProductWorkerFactory @Inject constructor(private val repository: Retrofit):WorkerFactory(){
-//    override fun createWorker(
-//        appContext: Context,
-//        workerClassName: String,
-//        workerParameters: WorkerParameters
-//    ): ListenableWorker  = ProductWorker(repository,appContext,workerParameters)
-//
-//}

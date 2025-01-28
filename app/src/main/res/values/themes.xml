@@ -6,15 +6,17 @@
 
 
         <!-- Status bar color -->
-<!--        <item name="android:statusBarColor">@color/purple_700</item>-->
+<!--        <item name="android:statusBarColor">@color/dark_grey_100</item>-->
 
         <!-- Background color -->
-        <item name="android:windowBackground">@color/white</item>
+<!--        <item name="android:windowBackground">@color/white</item>-->
 
         <!-- Font Styling -->
         <item name="android:fontFamily">@font/inter</item>
 
     </style>
 
-    <style name="Theme.ProductBrowser" parent="Base.Theme.ProductBrowser" />
+<!--    <style name="Theme.ProductBrowser" parent="Base.Theme.ProductBrowser" />-->
+
+
 </resources>

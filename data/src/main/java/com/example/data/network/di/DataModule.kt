@@ -46,9 +46,6 @@ object DataModule {
     }
 
 
-
-
-
     @Provides
     @Singleton
     fun providesPagerProductRepository(apiService: ApiService):PagerProductsRepository{

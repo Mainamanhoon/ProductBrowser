@@ -24,22 +24,20 @@ class ProductsRepositoryImpl @Inject constructor(private val apiService: ApiServ
          return response.toDomain()?: emptyList()
      }
 
-    init {
-        Log.d("WorkerDebug", "ProductsRepository initialized with DAO: ${productDao.hashCode()}")
-    }
+
     override suspend fun addProduct(product: Product): Product {
         val productName = (product.product_name ?: "").toRequestBody("text/plain".toMediaTypeOrNull())
         val productType = (product.product_name ?: "").toRequestBody("text/plain".toMediaTypeOrNull())
         val price = (product.price.toString() ?: "0.00").toRequestBody("text/plain".toMediaTypeOrNull())
         val tax = (product.tax.toString() ?: "0.00").toRequestBody("text/plain".toMediaTypeOrNull())
 
-        Log.d("imageDir", "Received image path: ${product.image}")
+        Log.d("imagePath", "Received image path: ${product.image}")
 
         val filePart = product.image?.let { filePath ->
             val file = File(filePath)
 
             if (!file.exists()) {
-                 return@let null // Avoid crash and do not send an empty file
+                 return@let null
             }
 
             val requestFile = file.asRequestBody("image/*".toMediaTypeOrNull())

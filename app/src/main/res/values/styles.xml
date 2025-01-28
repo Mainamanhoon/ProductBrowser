@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.ProductBrowser" parent="Base.Theme.ProductBrowser">
+        <item name="android:windowFullscreen">false</item>
+        <item name="statusBarBackground">@color/grey_100</item>
+    </style>
+
     <style name="HeadingStyle1">
         <item name="android:fontFamily">@font/inter</item>
         <item name="android:textSize">18sp</item>

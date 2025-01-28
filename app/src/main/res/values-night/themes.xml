@@ -2,14 +2,19 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ProductBrowser" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorSecondary">@color/blue</item>
+
 
         <!-- Status bar color -->
-        <!--        <item name="android:statusBarColor">@color/purple_700</item>-->
+                <item name="android:statusBarColor">@color/grey_100</item>
 
         <!-- Background color -->
         <item name="android:windowBackground">@color/white</item>
 
         <!-- Font Styling -->
         <item name="android:fontFamily">@font/inter</item>
+
     </style>
+
+
 </resources>

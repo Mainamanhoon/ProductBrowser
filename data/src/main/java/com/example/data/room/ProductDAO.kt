@@ -40,9 +40,9 @@ interface ProductDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(product: Product)
 
-    @Query("SELECT * FROM product WHERE pending_sync = 1")
+    @Query("SELECT * FROM product WHERE pending_sync = true")
     suspend fun getUnsyncedProducts(): List<Product>
 
-    @Query("UPDATE Product SET pending_sync = 0 WHERE id = :id")
+    @Query("UPDATE Product SET pending_sync = false WHERE id = :id")
     suspend fun markProductAsSynced(id: Int)
 }

@@ -1,7 +1,6 @@
-package com.example.productbrowser.ui
+package com.example.productbrowser.ui.home.ListProductFragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.productbrowser.databinding.FragmentListProductBinding
 import com.example.productbrowser.ui.home.HomeViewModel
@@ -43,17 +41,35 @@ class ListProductFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         collectProducts()
 
+
+
         binding.searchEt.addTextChangedListener{editable->
             val searchQuery = editable.toString().trim()
+            if(searchQuery.isNullOrBlank())binding.cleartextBtn.visibility=View.INVISIBLE
+            else binding.cleartextBtn.visibility=View.VISIBLE
             collectSearchFlow(searchQuery)
         }
 
+        binding.cleartextBtn.setOnClickListener {
+            binding.searchEt.text.clear()
+        }
+
     }
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            delay(3000)
+            pagingAdapter.refresh()
+        }
+    }
+
+
 
     private fun collectSearchFlow(searchQuery: String) {
         viewLifecycleOwner.lifecycleScope.launch {
@@ -83,5 +99,6 @@ class ListProductFragment : Fragment() {
             }
         }
     }
+
 
 }

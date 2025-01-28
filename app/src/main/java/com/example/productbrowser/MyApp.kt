@@ -5,7 +5,9 @@ import android.util.Log
 import androidx.work.Configuration
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.data.worker.ProductWorker
@@ -37,16 +39,19 @@ class MyApp : Application(), Configuration.Provider {
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        val workRequest = PeriodicWorkRequestBuilder<ProductWorker>(15, TimeUnit.MINUTES)
+        val workRequest = OneTimeWorkRequestBuilder<ProductWorker>()
             .setConstraints(constraints)
             .build()
 
         WorkManager.getInstance(this)
-            .enqueueUniquePeriodicWork(
-                "SyncWorker",
-                ExistingPeriodicWorkPolicy.KEEP,
-                workRequest
-            )
+            .enqueueUniqueWork("SyncWorker",
+                ExistingWorkPolicy.REPLACE,
+                workRequest)
+//            .enqueue(
+//                "SyncWorker",
+//                ExistingPeriodicWorkPolicy.KEEP,
+//                workRequest
+//            )
     }
 
 

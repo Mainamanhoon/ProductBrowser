@@ -71,7 +71,7 @@ class ProductRemoteMediator(
         } catch (e: IOException) {
             MediatorResult.Error(e) // Keep displaying cached data
         } catch (e: HttpException) {
-            MediatorResult.Error(e) // API failure, but cached data still available
+            MediatorResult.Error(e)
         }
     }
 

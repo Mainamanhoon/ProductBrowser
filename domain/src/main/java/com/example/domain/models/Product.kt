@@ -11,6 +11,6 @@ data class Product (
     val product_name: String,
     val product_type: String,
     val tax: Double,
-    val pending_sync: Boolean = true
+    var pending_sync: Boolean = false
 
 )
