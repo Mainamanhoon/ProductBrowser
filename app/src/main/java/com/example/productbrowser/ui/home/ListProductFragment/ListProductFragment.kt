@@ -1,14 +1,18 @@
 package com.example.productbrowser.ui.home.ListProductFragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.common.Resource
 import com.example.productbrowser.databinding.FragmentListProductBinding
 import com.example.productbrowser.ui.home.HomeViewModel
 import com.example.productbrowser.ui.home.ProductsAdapter
@@ -31,6 +35,21 @@ class ListProductFragment : Fragment() {
     ): View? {
         _binding = FragmentListProductBinding.inflate(inflater, container, false)
         setRecyclerView()
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.addProductState.collectLatest { result ->
+                when (result) {
+                    is Resource.Error ->{
+                        Log.d("AddProductsUsecase","Error: \${result.exception.message")
+                    }
+                    is Resource.Loading ->Unit
+
+                    is Resource.Success ->{
+                        pagingAdapter.refresh()
+                    }
+                }
+            }
+        }
+
 
         binding.swipeToRefresh.setOnRefreshListener {
             pagingAdapter.refresh()
@@ -60,13 +79,6 @@ class ListProductFragment : Fragment() {
             binding.searchEt.text.clear()
         }
 
-    }
-    override fun onResume() {
-        super.onResume()
-        lifecycleScope.launch {
-            delay(3000)
-            pagingAdapter.refresh()
-        }
     }
 
 
